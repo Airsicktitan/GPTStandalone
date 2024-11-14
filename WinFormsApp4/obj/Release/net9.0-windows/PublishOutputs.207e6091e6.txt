@@ -1,0 +1,14 @@
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\GPT-Syniti-Sense.exe
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\GPT-Syniti-Sense.dll
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\GPT-Syniti-Sense.deps.json
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\GPT-Syniti-Sense.runtimeconfig.json
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\GPT-Syniti-Sense.pdb
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\Microsoft.Web.WebView2.Core.dll
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\Microsoft.Web.WebView2.Core.xml
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\bin\Release\net9.0-windows\publish\Microsoft.Web.WebView2.Wpf.xml
