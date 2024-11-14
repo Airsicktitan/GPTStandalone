@@ -6,6 +6,8 @@
         <Nullable>enable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
+        <ApplicationIcon>icons8-chatgpt-gradient-70.ico</ApplicationIcon>
+        <AssemblyName>GPT-Syniti-Sense</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

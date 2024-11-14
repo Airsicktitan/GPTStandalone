@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("WinFormsApp4")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("GPT-Syniti-Sense")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bf26d9a0102d50e948d13edaf9a8384b566acec")]
-[assembly: System.Reflection.AssemblyProductAttribute("WinFormsApp4")]
-[assembly: System.Reflection.AssemblyTitleAttribute("WinFormsApp4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9d30b49384c78167eeed2e4066c2d887f1b5686")]
+[assembly: System.Reflection.AssemblyProductAttribute("GPT-Syniti-Sense")]
+[assembly: System.Reflection.AssemblyTitleAttribute("GPT-Syniti-Sense")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
