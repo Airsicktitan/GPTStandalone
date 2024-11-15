@@ -225,26 +225,26 @@ namespace WinFormsApp4
 
                         // Start a new interval to check for the chat input element
                         window.senseCheckExist = setInterval(function() {
+                            let chatInputDiv = document.querySelector('div.MuiInputBase-root.MuiInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-multiline.MuiInputBase-adornedStart.MuiInputBase-adornedEnd.css-11iqwpy'); // Get the main container div
                             let chatInput = document.getElementById('chat-input');
-                            if (chatInput) {
+                            let formControl = chatInput.closest('.MuiFormControl-root'); // Get the associated form control
+
+                            if (chatInput && chatInputDiv && formControl) {
                                 clearInterval(window.senseCheckExist);
 
-                                // Clear any existing content
-                                chatInput.value = '';
-                                chatInput.innerHTML = '';
+                                // Add the necessary class to the div container
+                                chatInputDiv.classList.add('Mui-focused');
 
-                                // Trigger focus and blur to reset the state (if needed)
-                                chatInput.focus();
-                                chatInput.blur();
+                                // Set focus on the form control to ensure the input is detected properly
+                                formControl.focus();
 
                                 // Set the value for the textarea AFTER the focus actions
-                                chatInput.value = '{{textToSend}}';
-                                chatInput.innerHTML = '{{textToSend}}';
+                                chatInput.value = "{{textToSend}}";
                                 console.log('Input is:', chatInput.value);
 
                                 // Trigger events to simulate real user input interactions
-                                chatInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
-                                chatInput.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
+                                chatInput.dispatchEvent(new Event('input', { bubbles: true }));
+                                chatInput.dispatchEvent(new Event('change', { bubbles: true }));
 
                                 // Enable the submit button once a value is present by modifying disabled property and triggering input event
                                 let submitButton = document.querySelector('button:has(svg[data-testid="TelegramIcon"])');
@@ -252,21 +252,22 @@ namespace WinFormsApp4
                                     submitButton.disabled = false;
                                     submitButton.classList.remove('Mui-disabled');
 
-                                    // Automate the click on the submit button
-                                    setTimeout(function() {
-                                        let clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
-                                        submitButton.dispatchEvent(clickEvent);
-                                        console.log('Syniti Sense Submit button clicked');
-                                    }, 500); // Adding a slight delay to ensure UI updates properly
+                                    if(submitButton.disabled) console.log('Sense Button Disabled');
+
+                                    submitButton.click();
+
+                                    console.log('Syniti Sense Submit button clicked');
                                 }
 
                                 console.log('Syniti Sense Input Text Set:', chatInput.value);
                             }
                         }, 100); // Checks every 100ms until the element is found
                     })();
-                    """);
-                    Console.WriteLine($"Sent and submitted to Syniti Sense: {textToSend}");
+                    """
+                    );
+                    Console.WriteLine($@"Sent and submitted to Syniti Sense: {textToSend}");
                 }
+
 
 
                 // Clear the input box after sending
