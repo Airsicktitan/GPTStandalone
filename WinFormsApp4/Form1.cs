@@ -11,14 +11,14 @@ namespace WinFormsApp4
         private readonly WebView2 _webView1;
         private readonly WebView2 _webView2;
         private TextBox _inputTextBox;
-        private CheckBox _checkBoxGPT;
+        private CheckBox _checkBoxGpt;
         private CheckBox _checkBoxSense;
         private Button _sendButton;
 
         public Form1()
         {
             InitializeComponent();
-            this.Text = "GPT - Syniti Sense";
+            this.Text = @"GPT - Syniti Sense";
             this.BackColor = Color.Black;
 
             // Set the form size to ensure both panels fit comfortably
@@ -28,7 +28,30 @@ namespace WinFormsApp4
             // Set the form to be resizable
             this.FormBorderStyle = FormBorderStyle.Sizable;
 
-            // Use a SplitContainer to handle resizing
+            // Create a TableLayoutPanel to hold the controls and the SplitContainer
+            var tableLayoutPanel = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                RowCount = 2,
+                ColumnCount = 1,
+                AutoSize = true,
+            };
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50)); // Fixed height for control panel
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100)); // Remaining space for SplitContainer
+            Controls.Add(tableLayoutPanel);
+
+            // Create a panel for input controls
+            var controlPanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Height = 50
+            };
+            tableLayoutPanel.Controls.Add(controlPanel, 0, 0);
+
+            // Initialize text input box, checkboxes, and button for sending text
+            InitializeControls(controlPanel);
+
+            // Use a SplitContainer to handle resizing for WebView2 panels
             var splitContainer = new SplitContainer
             {
                 Dock = DockStyle.Fill,
@@ -36,7 +59,7 @@ namespace WinFormsApp4
                 IsSplitterFixed = false,
                 FixedPanel = FixedPanel.None
             };
-            Controls.Add(splitContainer);
+            tableLayoutPanel.Controls.Add(splitContainer, 0, 1);
 
             // Initialize and add the first rounded panel to the left side of the split container
             var panel1 = new RoundedPanel
@@ -77,82 +100,185 @@ namespace WinFormsApp4
 
             // Use ResizeEnd to keep the panels evenly split after resizing ends
             this.ResizeEnd += (s, e) => splitContainer.SplitterDistance = this.ClientSize.Width / 2;
-
-            // Initialize text input box, checkboxes, and button for sending text
-            InitializeControls();
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public sealed override Color BackColor
         {
-            get { return base.BackColor; }
-            set { base.BackColor = value; }
+            get => base.BackColor;
+            set => base.BackColor = value;
         }
 
         [AllowNull]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public sealed override string Text
         {
-            get { return base.Text; }
-            set { base.Text = value; }
+            get => base.Text;
+            set => base.Text = value;
         }
 
-        private void InitializeControls()
+
+        private void InitializeControls(Panel controlPanel)
         {
             // TextBox for input
             _inputTextBox = new TextBox
             {
+                PlaceholderText = @"Ask GPT, Syniti Sense, or both!",
                 Location = new Point(10, 10),
                 Width = 300
             };
-            Controls.Add(_inputTextBox);
+            controlPanel.Controls.Add(_inputTextBox);
 
             // CheckBox for sending to GPT (WebView1)
-            _checkBoxGPT = new CheckBox
+            _checkBoxGpt = new CheckBox
             {
                 Location = new Point(320, 10),
-                Text = "Send to GPT",
+                Text = @"Send to GPT",
                 ForeColor = Color.White
             };
-            Controls.Add(_checkBoxGPT);
+            controlPanel.Controls.Add(_checkBoxGpt);
 
             // CheckBox for sending to Sense (WebView2)
             _checkBoxSense = new CheckBox
             {
-                Location = new Point(420, 10),
-                Text = "Send to Sense",
+                Location = new Point(440, 10),
+                Text = @"Send to Sense",
                 ForeColor = Color.White
             };
-            Controls.Add(_checkBoxSense);
+            controlPanel.Controls.Add(_checkBoxSense);
 
             // Button for sending the text
             _sendButton = new Button
             {
-                Location = new Point(520, 10),
-                Text = "Send",
+                Location = new Point(570, 10),
+                Text = @"Send",
                 ForeColor = Color.Black,
                 BackColor = Color.LightGray
             };
-            _sendButton.Click += SendButton_Click;
-            Controls.Add(_sendButton);
+            _sendButton.Click += SendButton_Click!;
+            controlPanel.Controls.Add(_sendButton);
         }
 
         private async void SendButton_Click(object sender, EventArgs e)
         {
-            string textToSend = _inputTextBox.Text;
-
-            if (_checkBoxGPT.Checked && !string.IsNullOrWhiteSpace(textToSend))
+            try
             {
-                await _webView1.ExecuteScriptAsync($"document.body.innerText += '{EscapeForJavaScript(textToSend)}';");
+                var textToSend = EscapeForJavaScript(_inputTextBox.Text);
+
+                if (string.IsNullOrWhiteSpace(textToSend)) return;
+
+                // For ChatGPT (targeting the input area and clicking the submit button)
+                if (_checkBoxGpt.Checked)
+                {
+                    await _webView1.ExecuteScriptAsync(
+                        $$"""
+                        (function() {
+                            // Clear any previous interval to avoid lingering checks
+                            clearInterval(window.gptCheckExist);
+
+                            // Start a new interval to check for the textarea element
+                            window.gptCheckExist = setInterval(function() {
+                                let promptTextarea = document.getElementById('prompt-textarea');
+                                if (promptTextarea) {
+                                    clearInterval(window.gptCheckExist);
+
+                                    // Set the value for the textarea using innerHTML (as per requirement)
+                                    promptTextarea.innerHTML = '{{textToSend}}';
+
+                                    // Dispatch input events to ensure the UI reacts correctly
+                                    promptTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+                                    promptTextarea.dispatchEvent(new Event('change', { bubbles: true }));
+                                    console.log('GPT Input Textarea Value:', promptTextarea.innerHTML);
+
+                                    // Delay before finding and clicking the submit button
+                                    setTimeout(function() {
+                                        // Find the submit button using the data-testid attribute
+                                        let submitButton = document.querySelector('button[data-testid="send-button"]');
+                                        if (submitButton) {
+                                            console.log('GPT Submit button found');
+
+                                            // Try clicking the button even if it appears disabled
+                                            if (submitButton.disabled) {
+                                                console.log('GPT Submit button is currently disabled, but attempting to click it.');
+                                            }
+
+                                            submitButton.click();
+                                            console.log('GPT Submit button click attempted');
+                                        } else {
+                                            console.log('GPT Submit button not found');
+                                        }
+                                    }, 500); // 500ms delay to allow the button state to update
+                                }
+                            }, 100); // Checks every 100ms until the element is found
+                        })();
+                        """);
+                    Console.WriteLine($@"Sent and submitted to GPT: {textToSend}");
+                }
+
+                // For Syniti Sense (targeting the textarea with id "chat-input" and clicking the submit button)
+                if (_checkBoxSense.Checked) {
+                    await _webView2.ExecuteScriptAsync(
+                    $$"""
+                    (function() {
+                        // Clear any previous interval to avoid lingering checks
+                        clearInterval(window.senseCheckExist);
+
+                        // Start a new interval to check for the chat input element
+                        window.senseCheckExist = setInterval(function() {
+                            let chatInput = document.getElementById('chat-input');
+                            if (chatInput) {
+                                clearInterval(window.senseCheckExist);
+
+                                // Clear any existing content
+                                chatInput.value = '';
+                                chatInput.innerHTML = '';
+
+                                // Trigger focus and blur to reset the state (if needed)
+                                chatInput.focus();
+                                chatInput.blur();
+
+                                // Set the value for the textarea AFTER the focus actions
+                                chatInput.value = '{{textToSend}}';
+                                chatInput.innerHTML = '{{textToSend}}';
+                                console.log('Input is:', chatInput.value);
+
+                                // Trigger events to simulate real user input interactions
+                                chatInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+                                chatInput.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
+
+                                // Enable the submit button once a value is present by modifying disabled property and triggering input event
+                                let submitButton = document.querySelector('button:has(svg[data-testid="TelegramIcon"])');
+                                if (submitButton && chatInput.value.trim() !== '') {
+                                    submitButton.disabled = false;
+                                    submitButton.classList.remove('Mui-disabled');
+
+                                    // Automate the click on the submit button
+                                    setTimeout(function() {
+                                        let clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
+                                        submitButton.dispatchEvent(clickEvent);
+                                        console.log('Syniti Sense Submit button clicked');
+                                    }, 500); // Adding a slight delay to ensure UI updates properly
+                                }
+
+                                console.log('Syniti Sense Input Text Set:', chatInput.value);
+                            }
+                        }, 100); // Checks every 100ms until the element is found
+                    })();
+                    """);
+                    Console.WriteLine($"Sent and submitted to Syniti Sense: {textToSend}");
+                }
+
+
+                // Clear the input box after sending
+                _inputTextBox.Clear();
             }
-
-            if (_checkBoxSense.Checked && !string.IsNullOrWhiteSpace(textToSend))
+            catch (Exception exception)
             {
-                await _webView2.ExecuteScriptAsync($"document.body.innerText += '{EscapeForJavaScript(textToSend)}';");
+                MessageBox.Show($@"An error occurred while sending text: {exception.Message}");
             }
         }
 
-        private string EscapeForJavaScript(string input)
+        private static string EscapeForJavaScript(string input)
         {
             // Escape the input to prevent JavaScript injection
             return input.Replace("'", "\\'").Replace("\"", "\\\"");
@@ -186,7 +312,7 @@ namespace WinFormsApp4
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while initializing web views: {ex.Message}");
+                MessageBox.Show($@"An error occurred while initializing web views: {ex.Message}");
             }
         }
     }
