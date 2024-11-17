@@ -272,8 +272,6 @@ namespace WinFormsApp4
                     Console.WriteLine($@"Sent and submitted to Syniti Sense: {textToSend}");
                 }
 
-
-
                 // Clear the input box after sending
                 _inputTextBox.Clear();
             }
