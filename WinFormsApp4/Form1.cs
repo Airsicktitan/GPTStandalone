@@ -198,9 +198,7 @@ namespace WinFormsApp4
                                             if (submitButton.disabled) return
 
                                             submitButton.click();
-                                        } else {
-                                            console.log('GPT Submit button not found');
-                                        }
+                                        } else return;
                                     }, 500); // 500ms delay to allow the button state to update
                                 }
                             }, 100); // Checks every 100ms until the element is found
@@ -234,10 +232,6 @@ namespace WinFormsApp4
                                 // Set the value for the textarea AFTER the focus actions
                                 chatInput.textContent = "{{textToSend}}";
 
-                                console.log('Input is:', chatInput.value);
-
-                                chatInput.setAttribute("value", "{{textToSend}}");
-
                                 // Trigger events to simulate real user input interactions
                                 chatInput.dispatchEvent(new Event('input', { bubbles: true }));
                                 chatInput.dispatchEvent(new Event('change', { bubbles: true }));
@@ -251,18 +245,13 @@ namespace WinFormsApp4
                                     if (button) {
                                         button.click();
                                         chatInput.textContent = "";
-                                    } else {
-                                        console.log("Parent button not found");
-                                    }
-                                } else {
-                                    console.log("SVG element not found");
-                                }
+                                    } else return;
+                                } else return;
                             }
                         }, 1000); // Checks every 100ms until the element is found
                     })();
                     """
                     );
-                    Console.WriteLine($@"Sent and submitted to Syniti Sense: {textToSend}");
                 }
 
                 // Clear the input box after sending
