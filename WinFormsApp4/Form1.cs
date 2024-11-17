@@ -240,25 +240,33 @@ namespace WinFormsApp4
 
                                 // Set the value for the textarea AFTER the focus actions
                                 chatInput.value = "{{textToSend}}";
+                                chatInput.innerHTML = "{{textToSend}}";
                                 console.log('Input is:', chatInput.value);
+
+                                chatInput.setAttribute("value", "{{textToSend}}");
 
                                 // Trigger events to simulate real user input interactions
                                 chatInput.dispatchEvent(new Event('input', { bubbles: true }));
                                 chatInput.dispatchEvent(new Event('change', { bubbles: true }));
 
                                 // Enable the submit button once a value is present by modifying disabled property and triggering input event
-                                let submitButton = document.querySelector('button:has(svg[data-testid="TelegramIcon"])');
-                                if (submitButton && chatInput.value.trim() !== '') {
-                                    submitButton.disabled = false;
-                                    submitButton.classList.remove('Mui-disabled');
+                                let submitButton = document.querySelector('svg[data-testid="TelegramIcon"]');
 
-                                    if(submitButton.disabled) console.log('Sense Button Disabled');
-
-                                    submitButton.click();
-
-                                    console.log('Syniti Sense Submit button clicked');
+                                // Check if the SVG element exists, then click its parent button
+                                if (submitButton) {
+                                    let button = submitButton.closest('button');
+                                    if (button) {
+                                        button.disabled = false;
+                                        button.classList.remove('Mui-disabled');
+                                        console.log('Submit button found');
+                                        console.log(button);
+                                        button.click();
+                                    } else {
+                                        console.log("Parent button not found");
+                                    }
+                                } else {
+                                    console.log("SVG element not found");
                                 }
-
                                 console.log('Syniti Sense Input Text Set:', chatInput.value);
                             }
                         }, 100); // Checks every 100ms until the element is found
