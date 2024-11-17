@@ -324,7 +324,7 @@ namespace WinFormsApp4
             graphics.DrawPath(pen, path);
         }
 
-        private GraphicsPath GetRoundedRectanglePath(Rectangle rect, int radius)
+        private static GraphicsPath GetRoundedRectanglePath(Rectangle rect, int radius)
         {
             var path = new GraphicsPath();
             var diameter = radius * 2;
