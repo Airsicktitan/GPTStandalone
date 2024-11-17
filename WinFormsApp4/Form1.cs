@@ -232,8 +232,8 @@ namespace WinFormsApp4
                                 formControl.focus();
 
                                 // Set the value for the textarea AFTER the focus actions
-                                chatInput.value = "{{textToSend}}";
-                                chatInput.innerHTML = "{{textToSend}}";
+                                chatInput.textContent = "{{textToSend}}";
+
                                 console.log('Input is:', chatInput.value);
 
                                 chatInput.setAttribute("value", "{{textToSend}}");
@@ -250,6 +250,7 @@ namespace WinFormsApp4
                                     let button = submitButton.closest('button');
                                     if (button) {
                                         button.click();
+                                        chatInput.textContent = "";
                                     } else {
                                         console.log("Parent button not found");
                                     }
