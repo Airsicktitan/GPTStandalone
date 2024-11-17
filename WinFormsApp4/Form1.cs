@@ -10,10 +10,10 @@ namespace WinFormsApp4
     {
         private readonly WebView2 _webView1;
         private readonly WebView2 _webView2;
-        private TextBox _inputTextBox;
-        private CheckBox _checkBoxGpt;
-        private CheckBox _checkBoxSense;
-        private Button _sendButton;
+        private TextBox _inputTextBox = null!;
+        private CheckBox _checkBoxGpt = null!;
+        private CheckBox _checkBoxSense = null!;
+        private Button _sendButton = null!;
 
         public Form1()
         {
@@ -92,14 +92,14 @@ namespace WinFormsApp4
             panel2.Controls.Add(_webView2);
 
             // Set SplitterDistance to initially split the panels evenly after load
-            this.Load += async (s, e) =>
+            this.Load += async (_, _) =>
             {
                 splitContainer.SplitterDistance = this.ClientSize.Width / 2;
                 await InitializeWebViewsAsync(); // Await the async method here after form load
             };
 
             // Use ResizeEnd to keep the panels evenly split after resizing ends
-            this.ResizeEnd += (s, e) => splitContainer.SplitterDistance = this.ClientSize.Width / 2;
+            this.ResizeEnd += (_, _) => splitContainer.SplitterDistance = this.ClientSize.Width / 2;
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -286,14 +286,14 @@ namespace WinFormsApp4
                 var webViewEnvironment1 =
                     await CoreWebView2Environment.CreateAsync(null, userDataFolderPath1, envOptions1);
                 await _webView1.EnsureCoreWebView2Async(webViewEnvironment1);
-                _webView1.Source = new Uri("http://chat.openai.com");
+                _webView1.Source = new Uri("https://chat.openai.com");
 
                 // Initialize and load the second URL with persistent data folder for Google
                 var envOptions2 = new CoreWebView2EnvironmentOptions();
                 var webViewEnvironment2 =
                     await CoreWebView2Environment.CreateAsync(null, userDataFolderPath2, envOptions2);
                 await _webView2.EnsureCoreWebView2Async(webViewEnvironment2);
-                _webView2.Source = new Uri("http://sense.syniti.com");
+                _webView2.Source = new Uri("https://sense.syniti.com");
             }
             catch (Exception ex)
             {
@@ -306,7 +306,7 @@ namespace WinFormsApp4
     public class RoundedPanel : Panel
     {
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int BorderRadius { get; set; } = 20;
+        public int BorderRadius { get; init; } = 20;
 
         protected override void OnPaint(PaintEventArgs e)
         {
