@@ -188,22 +188,16 @@ namespace WinFormsApp4
                                     // Dispatch input events to ensure the UI reacts correctly
                                     promptTextarea.dispatchEvent(new Event('input', { bubbles: true }));
                                     promptTextarea.dispatchEvent(new Event('change', { bubbles: true }));
-                                    console.log('GPT Input Textarea Value:', promptTextarea.innerHTML);
 
                                     // Delay before finding and clicking the submit button
                                     setTimeout(function() {
                                         // Find the submit button using the data-testid attribute
                                         let submitButton = document.querySelector('button[data-testid="send-button"]');
                                         if (submitButton) {
-                                            console.log('GPT Submit button found');
-
                                             // Try clicking the button even if it appears disabled
-                                            if (submitButton.disabled) {
-                                                console.log('GPT Submit button is currently disabled, but attempting to click it.');
-                                            }
+                                            if (submitButton.disabled) return
 
                                             submitButton.click();
-                                            console.log('GPT Submit button click attempted');
                                         } else {
                                             console.log('GPT Submit button not found');
                                         }
@@ -212,7 +206,6 @@ namespace WinFormsApp4
                             }, 100); // Checks every 100ms until the element is found
                         })();
                         """);
-                    Console.WriteLine($@"Sent and submitted to GPT: {textToSend}");
                 }
 
                 // For Syniti Sense (targeting the textarea with id "chat-input" and clicking the submit button)
@@ -263,9 +256,8 @@ namespace WinFormsApp4
                                 } else {
                                     console.log("SVG element not found");
                                 }
-                                console.log('Syniti Sense Input Text Set:', chatInput.value);
                             }
-                        }, 100); // Checks every 100ms until the element is found
+                        }, 1000); // Checks every 100ms until the element is found
                     })();
                     """
                     );
