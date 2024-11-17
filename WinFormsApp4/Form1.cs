@@ -256,10 +256,6 @@ namespace WinFormsApp4
                                 if (submitButton) {
                                     let button = submitButton.closest('button');
                                     if (button) {
-                                        button.disabled = false;
-                                        button.classList.remove('Mui-disabled');
-                                        console.log('Submit button found');
-                                        console.log(button);
                                         button.click();
                                     } else {
                                         console.log("Parent button not found");
