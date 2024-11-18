@@ -16,6 +16,7 @@ To get started using this application:
 ![SKIP](https://github.com/user-attachments/assets/b86a505e-cf8b-40b6-a7e1-2e7cdd8df1b0)
 4) Click on the GPTStandalone-{number}-Release folder -> WinFormsApp4 -> bin -> Release -> net9.0-windows -> Double click the GPT-Syniti-Sense.exe application, you will receive a microsoft security warning, but this can be ignored, click ok, or cancel.  Right click GPT-Syniti-Sense.exe and click on properties.
 Click on 'Unblock' under the General tab:
+
 ![image](https://github.com/user-attachments/assets/3d83679f-3dfe-4791-8673-3b417c14b6f2)
 
 
