@@ -5,6 +5,10 @@ The purpose of this application is to allow users to use both ChatGPT and Syniti
 - Send a single question / prompt to both sites with a couple clicks!
 - Logon persistance
 
+Known Bugs:
+- Light mode doesn't allow for submit from the 'Send' button:
+  Temporary fix, enable dark mode in Syniti Sense
+
 To get started using this application (Make sure you have .net9 SDK installed https://dotnet.microsoft.com/en-us/download/dotnet/9.0):
 1) Download the release file:
 ![Releases - GPT Application](https://github.com/user-attachments/assets/da970c3c-4ee7-473a-914c-f8441a973f9e)
