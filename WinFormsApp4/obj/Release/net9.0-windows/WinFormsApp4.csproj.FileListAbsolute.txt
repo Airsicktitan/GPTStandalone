@@ -26,3 +26,31 @@ C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\obj\Release\net9.0-window
 C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\obj\Release\net9.0-windows\refint\GPT-Syniti-Sense.dll
 C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\obj\Release\net9.0-windows\GPT-Syniti-Sense.pdb
 C:\Users\adamc\RiderProjects\WinFormsApp4\WinFormsApp4\obj\Release\net9.0-windows\ref\GPT-Syniti-Sense.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\GPT-Syniti-Sense.exe
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\GPT-Syniti-Sense.deps.json
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\GPT-Syniti-Sense.runtimeconfig.json
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\GPT-Syniti-Sense.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\GPT-Syniti-Sense.pdb
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\Microsoft.Web.WebView2.Core.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\Microsoft.Web.WebView2.Core.xml
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\bin\Release\net9.0-windows\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.csproj.AssemblyReference.cache
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.Form1.resources
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.csproj.GenerateResource.cache
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.AssemblyInfoInputs.cache
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.AssemblyInfo.cs
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.csproj.CoreCompileInputs.cache
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.sourcelink.json
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinForms.C2FE0A35.Up2Date
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\GPT-Syniti-Sense.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\refint\GPT-Syniti-Sense.dll
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\GPT-Syniti-Sense.pdb
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\WinFormsApp4.genruntimeconfig.cache
+C:\Users\Adam Hooper\RiderProjects\GPTStandalonev2\WinFormsApp4\obj\Release\net9.0-windows\ref\GPT-Syniti-Sense.dll
