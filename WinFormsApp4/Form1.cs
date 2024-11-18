@@ -219,15 +219,17 @@ namespace WinFormsApp4
 
                         // Start a new interval to check for the chat input element
                         window.senseCheckExist = setInterval(function() {
-                            let chatInputDiv = document.querySelector('div.MuiInputBase-root.MuiInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-multiline.MuiInputBase-adornedStart.MuiInputBase-adornedEnd.css-11iqwpy'); // Get the main container div
+                            let chatInputDiv = document.querySelector('div.MuiInputBase-root.MuiInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-multiline.MuiInputBase-adornedStart.MuiInputBase-adornedEnd.css-11iqwpy'); // Get the main container div Dark mode
+                            let chatInputDivLight = document.querySelector('div.MuiInputBase-root.MuiInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-multiline.MuiInputBase-adornedStart.MuiInputBase-adornedEnd.css-1fbn754'); // Get the main container div Light mode
                             let chatInput = document.getElementById('chat-input');
                             let formControl = chatInput.closest('.MuiFormControl-root'); // Get the associated form control
 
-                            if (chatInput && chatInputDiv && formControl) {
+                            if (chatInput && (chatInputDiv || chatInputDivLight) && formControl) {
                                 clearInterval(window.senseCheckExist);
 
                                 // Add the necessary class to the div container
-                                chatInputDiv.classList.add('Mui-focused');
+                                if(chatInputDiv != null) chatInputDiv.classList.add('Mui-focused');
+                                else chatInputDivLight.classList.add('Mui-focused');
 
                                 // Set focus on the form control to ensure the input is detected properly
                                 formControl.focus();

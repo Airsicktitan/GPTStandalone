@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GPT-Syniti-Sense")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f47cd284ecfb4b3d8d069b132309fd0b7582e34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d98ccb0659c8696d0fb89cb556b9f24878ea9621")]
 [assembly: System.Reflection.AssemblyProductAttribute("GPT-Syniti-Sense")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GPT-Syniti-Sense")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
