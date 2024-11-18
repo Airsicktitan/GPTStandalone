@@ -133,24 +133,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adamc\\.nuget\\packages\\": {},
+    "C:\\Users\\Adam Hooper\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adamc\\RiderProjects\\WinFormsApp4\\WinFormsApp4\\WinFormsApp4.csproj",
+      "projectUniqueName": "C:\\Users\\Adam Hooper\\RiderProjects\\GPTStandalonev2\\WinFormsApp4\\WinFormsApp4.csproj",
       "projectName": "GPT-Syniti-Sense",
-      "projectPath": "C:\\Users\\adamc\\RiderProjects\\WinFormsApp4\\WinFormsApp4\\WinFormsApp4.csproj",
-      "packagesPath": "C:\\Users\\adamc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adamc\\RiderProjects\\WinFormsApp4\\WinFormsApp4\\obj\\",
+      "projectPath": "C:\\Users\\Adam Hooper\\RiderProjects\\GPTStandalonev2\\WinFormsApp4\\WinFormsApp4.csproj",
+      "packagesPath": "C:\\Users\\Adam Hooper\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adam Hooper\\RiderProjects\\GPTStandalonev2\\WinFormsApp4\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\adamc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adam Hooper\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -159,7 +159,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -207,7 +206,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Adam Hooper\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

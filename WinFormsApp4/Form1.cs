@@ -134,7 +134,8 @@ namespace WinFormsApp4
             {
                 Location = new Point(320, 10),
                 Text = @"Send to GPT",
-                ForeColor = Color.White
+                ForeColor = Color.White,
+                AutoSize = true
             };
             controlPanel.Controls.Add(_checkBoxGpt);
 
@@ -143,7 +144,8 @@ namespace WinFormsApp4
             {
                 Location = new Point(440, 10),
                 Text = @"Send to Sense",
-                ForeColor = Color.White
+                ForeColor = Color.White,
+                AutoSize = true
             };
             controlPanel.Controls.Add(_checkBoxSense);
 
@@ -153,7 +155,8 @@ namespace WinFormsApp4
                 Location = new Point(570, 10),
                 Text = @"Send",
                 ForeColor = Color.Black,
-                BackColor = Color.LightGray
+                BackColor = Color.LightGray,
+                AutoSize = true
             };
             _sendButton.Click += SendButton_Click!;
             controlPanel.Controls.Add(_sendButton);
